@@ -1,9 +1,7 @@
 ---
-# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-# image will be published to ghcr.io/<user>/<name>
-name: template
+name: aurora-dx-
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: Aurora DX with 1password and wezterm
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/aurora-dx
@@ -16,8 +14,38 @@ modules:
     files:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-  - type: bling
+
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/wezfurlong/wezterm-nightly/repo/fedora-%OS_VERSION%/wezfurlong-wezterm-nightly-fedora-%OS_VERSION%.repo
+      - 1password.repo
+    optfix:
+      - 1Password
     install:
+      - autoconf
+      - gcc
+      - patch
+      - make
+      - bzip2
+      - openssl-devel
+      - libyaml-devel
+      - libffi-devel
+      - readline-devel
+      - gdbm-devel
+      - ncurses-devel
+      - perl-FindBin # Because of OpenSSL!
+      # Necessary for Quality of Life
+      - wezterm
       - 1password
+
+  - type: default-flatpaks
+    notify: true # Send notification after install/uninstall is finished (true/false)
+#    system:
+#      # If no repo information is specified, Flathub will be used by default
+#      install:
+#        -
+#      remove:
+#        -
+    user: {} # Also add Flathub user repo, but no user packages
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
