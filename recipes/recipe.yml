@@ -14,12 +14,14 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
+  - type: bling
+    install:
+      - 1password
+
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/wezfurlong/wezterm-nightly/repo/fedora-%OS_VERSION%/wezfurlong-wezterm-nightly-fedora-%OS_VERSION%.repo
-      - 1password.repo
-    optfix:
-      - 1Password
+
     install:
       - autoconf
       - gcc
@@ -35,7 +37,7 @@ modules:
       - perl-FindBin # Because of OpenSSL!
       # Necessary for Quality of Life
       - wezterm
-      - 1password
+
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
