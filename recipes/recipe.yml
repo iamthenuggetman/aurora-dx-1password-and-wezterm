@@ -12,16 +12,16 @@ image-version: stable # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  #- type: files
-  #  files:
-  #    - source: system
-  #      destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+  - type: files
+   files:
+     - source: system
+       destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
-  - type: rpm-ostree
-    repos:
-      - https://copr.fedorainfracloud.org/coprs/wezfurlong/wezterm-nightly/repo/fedora-%OS_VERSION%/wezfurlong-wezterm-nightly-fedora-%OS_VERSION%.repo
-    install:
-      - wezterm
+  # - type: rpm-ostree
+  #   repos:
+  #     - https://copr.fedorainfracloud.org/coprs/wezfurlong/wezterm-nightly/repo/fedora-%OS_VERSION%/wezfurlong-wezterm-nightly-fedora-%OS_VERSION%.repo
+  #   install:
+  #     - wezterm
   - type: bling
     install:
       - 1password
