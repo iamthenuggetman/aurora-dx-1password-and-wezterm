@@ -26,6 +26,7 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/wezfurlong/wezterm-nightly/repo/fedora-%OS_VERSION%/wezfurlong-wezterm-nightly-fedora-%OS_VERSION%.repo
+      - https://download.opensuse.org/repositories/home:paul4us/Fedora_%OS_VERSION%/home:paul4us.repo
 
     install:
       - autoconf
@@ -53,6 +54,7 @@ modules:
 
       # Necessary for Quality of Life
       - wezterm
+      - klassy
 
 
   - type: default-flatpaks
