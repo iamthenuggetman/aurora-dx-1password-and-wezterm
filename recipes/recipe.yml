@@ -47,16 +47,13 @@ modules:
 #        -
 #      remove:
 #        -
-    user: {} # Also add Flathub user repo, but no user packages
-
+    user: {} # Also add Flathub user repo, but no user package
 
   - type: script
-  scripts:
-    - echo "🔍 Listing files under /usr/etc..."
-    - find /usr/etc || echo "/usr/etc not found"
-    - echo "📁 Listing everything under /usr just in case:"
-    - find /usr | grep etc || true
-
-
+    scripts:
+      - echo "🔍 Listing files under /usr/etc..."
+      - find /usr/etc || echo "/usr/etc not found"
+      - echo "📁 Listing everything under /usr just in case:"
+      - find /usr | grep etc || true
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
