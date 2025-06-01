@@ -50,7 +50,7 @@ modules:
     user: {} # Also add Flathub user repo, but no user package
 
   - type: script
-    scripts:
+    snippets:
       - echo "🔍 Listing files under /usr/etc..."
       - find /usr/etc || echo "/usr/etc not found"
       - echo "📁 Listing everything under /usr just in case:"
