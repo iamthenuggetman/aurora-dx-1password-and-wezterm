@@ -35,13 +35,6 @@ modules:
       - gdbm-devel
       - ncurses-devel
       - perl-FindBin # Because of OpenSSL!
-      # dependencies for Yin-Yang https://github.com/oskarsh/Yin-Yang
-      - gcc
-      - systemd-devel
-      - python3-devel
-      - libnotify
-      - poetry
-      - python3-pyside6
       # dependencies for panel colorizer c++ plugin https://github.com/luisbocanegra/plasma-panel-colorizer
       - git
       - gcc-c++
