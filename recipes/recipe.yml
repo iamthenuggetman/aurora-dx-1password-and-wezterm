@@ -27,6 +27,7 @@ modules:
     repos:
       - https://copr.fedorainfracloud.org/coprs/wezfurlong/wezterm-nightly/repo/fedora-%OS_VERSION%/wezfurlong-wezterm-nightly-fedora-%OS_VERSION%.repo
       - https://download.opensuse.org/repositories/home:paul4us/Fedora_%OS_VERSION%/home:paul4us.repo
+      - https://download.opensuse.org/repositories/home:luisbocanegra/Fedora_42/home:luisbocanegra.repo
 
     install:
       - autoconf
@@ -55,6 +56,7 @@ modules:
       # Necessary for Quality of Life
       - wezterm
       - klassy
+      - kde-material-you-colors
 
 
   - type: default-flatpaks
